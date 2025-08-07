@@ -1,81 +1,6 @@
 # Varsha Sangama Murthy - Portfolio
 
-A modern, responsive portfolio website showcasing my expertise as a Site Reliability Engineer. Built with React.js and featuring a clean, professional design with mobile-responsive layout.
-
-## 🚀 Features
-
-- **Responsive Design** - Mobile hamburger menu, optimized for all device sizes
-- **Professional Experience Timeline** - Tab-based navigation through career journey
-- **Skills Showcase** - Technical stack with custom icons
-- **Contact Integration** - Direct links to LinkedIn, GitHub, and email
-- **Mobile-First Design** - Optimized mobile experience
-
-## 🛠️ Technologies Used
-
-- **Frontend**: React.js (^19.1.1), HTML5, CSS3
-- **Icons**: React Icons (^5.5.0)
-- **Styling**: Custom responsive CSS
-
-## 📦 Installation & Required Packages
-
-### Core Dependencies (Required)
-These packages are essential for the portfolio to run:
-```bash
-npm install react@^19.1.1 react-dom@^19.1.1 react-scripts@5.0.1
-```
-
-### UI Dependencies (Required)
-For icons and UI components:
-```bash
-npm install react-icons@^5.5.0
-```
-
-### Development & Testing Dependencies (Optional)
-For testing and development tools:
-```bash
-npm install --save-dev @testing-library/react@^16.3.0 @testing-library/jest-dom@^6.6.4 @testing-library/user-event@^13.5.0 web-vitals@^2.1.4
-```
-
-### EmailJS (Optional - For Contact Forms)
-Only needed if you want to add contact form functionality:
-```bash
-npm install @emailjs/browser@^4.4.1
-```
-
-### Quick Setup (Recommended)
-1. **Clone the repository:**
-```bash
-git clone https://github.com/VarshaSMurthy/Portfolio.git
-cd Portfolio
-```
-
-2. **Install all dependencies:**
-```bash
-npm install
-```
-This will automatically install all packages listed in `package.json`.
-
-3. **Start development server:**
-```bash
-npm start
-```
-
-Open [http://localhost:3000](http://localhost:3000) to view in browser.
-
-### Manual Package Installation
-If you need to install packages individually:
-```bash
-# Essential packages (minimum required)
-npm install react react-dom react-scripts react-icons
-
-# Optional: Email functionality
-npm install @emailjs/browser
-
-# Optional: Testing libraries
-npm install @testing-library/react @testing-library/jest-dom @testing-library/user-event web-vitals
-```
-
-## 📧 Email Setup
+A## 📧 Email Setup
 
 ### Basic Email Links (Current Implementation)
 The portfolio uses direct email contact via `mailto:` links. To customize:
@@ -206,7 +131,55 @@ emailjs.send(
 )
 ```
 
-3. Add `.env` to your `.gitignore` file to keep keys private
+3. Add `.env` to your `.gitignore` file to keep keys privateonsive portfolio website showcasing my expertise as a Site Reliability Engineer. Built with React.js and featuring a clean, professional design with mobile-responsive layout.
+
+## 🚀 Features
+
+- **Responsive Design** - Mobile hamburger menu, optimized for all device sizes
+- **Professional Experience Timeline** - Tab-based navigation through career journey
+- **Skills Showcase** - Technical stack with custom icons
+- **Contact Integration** - Direct links to LinkedIn, GitHub, and email
+- **Mobile-First Design** - Optimized mobile experience
+
+## 🛠️ Technologies Used
+
+- **Frontend**: React.js (^19.1.1), HTML5, CSS3
+- **Icons**: React Icons (^5.5.0)
+- **Styling**: Custom responsive CSS
+
+## 📦 Installation
+
+1. **Clone the repository:**
+```bash
+git clone https://github.com/VarshaSMurthy/Portfolio.git
+cd Portfolio
+```
+
+2. **Install dependencies:**
+```bash
+npm install
+```
+
+3. **Start development server:**
+```bash
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view in browser.
+
+## � Email Setup
+
+The portfolio includes direct email contact via `mailto:` links. To customize:
+
+1. **Update email address** in `src/Home.js`:
+```javascript
+<a href="mailto:youremail@example.com"><FaEnvelope /></a>
+```
+
+2. **For contact forms** (optional enhancement):
+   - Install EmailJS: `npm install @emailjs/browser`
+   - Create account at [emailjs.com](https://www.emailjs.com/)
+   - Add service ID, template ID, and public key to Contact component
 
 ## 🎨 Customization
 
@@ -235,144 +208,15 @@ const experienceData = [
 npm run build
 ```
 
-### 🐳 Docker Containerization
-
-#### Create Dockerfile
-Create a `Dockerfile` in the root directory:
-
-```dockerfile
-# Multi-stage build for optimized production image
-FROM node:18-alpine AS build
-
-# Set working directory
-WORKDIR /app
-
-# Copy package files
-COPY package*.json ./
-
-# Install dependencies
-RUN npm ci --only=production
-
-# Copy source code
-COPY . .
-
-# Build the application
-RUN npm run build
-
-# Production stage
-FROM nginx:alpine
-
-# Copy built app to nginx
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Copy custom nginx config (optional)
-COPY nginx.conf /etc/nginx/nginx.conf
-
-# Expose port 80
-EXPOSE 80
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
-```
-
-#### Create .dockerignore
-Create a `.dockerignore` file:
-```
-node_modules
-npm-debug.log
-build
-.dockerignore
-Dockerfile
-README.md
-.git
-.gitignore
-```
-
-#### Optional: Custom Nginx Config
-Create `nginx.conf` for better performance:
-```nginx
-events {
-    worker_connections 1024;
-}
-
-http {
-    include /etc/nginx/mime.types;
-    default_type application/octet-stream;
-
-    server {
-        listen 80;
-        server_name localhost;
-        root /usr/share/nginx/html;
-        index index.html;
-
-        # Handle React Router
-        location / {
-            try_files $uri $uri/ /index.html;
-        }
-
-        # Cache static assets
-        location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
-            expires 1y;
-            add_header Cache-Control "public, immutable";
-        }
-    }
-}
-```
-
-#### Docker Commands
-
-**Build the image:**
-```bash
-docker build -t portfolio-app .
-```
-
-**Run the container:**
-```bash
-docker run -p 3000:80 portfolio-app
-```
-
-**Run in background:**
-```bash
-docker run -d -p 3000:80 --name my-portfolio portfolio-app
-```
-
-**Stop the container:**
-```bash
-docker stop my-portfolio
-```
-
-#### Docker Compose (Optional)
-Create `docker-compose.yml` for easier management:
-
-```yaml
-version: '3.8'
-services:
-  portfolio:
-    build: .
-    ports:
-      - "3000:80"
-    container_name: varsha-portfolio
-    restart: unless-stopped
-```
-
-**Run with Docker Compose:**
-```bash
-# Start
-docker-compose up -d
-
-# Stop
-docker-compose down
-```
-
 ### Deploy Options
 - **Netlify**: Drag `build` folder to Netlify dashboard
 - **Vercel**: Install CLI and run `vercel`
 - **GitHub Pages**: Add gh-pages package and deploy script
-- **Docker**: Use the containerized version on any Docker-enabled platform
 
 ## 📞 Contact
 
 - **Email**: svarshamurthy@gmail.com
 - **LinkedIn**: [linkedin.com/in/varsha-sangama-murthy](https://linkedin.com/in/varsha-sangama-murthy)
 - **GitHub**: [github.com/VarshaSMurthy](https://github.com/VarshaSMurthy)
+
 
