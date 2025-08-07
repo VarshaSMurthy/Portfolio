@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Varsha Sangama Murthy - Portfolio
 
 A modern, responsive portfolio website showcasing my expertise as a Site Reliability Engineer. Built with React.js and featuring a clean, professional design with smooth animations and mobile-responsive layout.
@@ -270,3 +271,6 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 **Note**: Remember to replace placeholder values with your actual information before deployment!
+=======
+
+>>>>>>> 010edb62a13512e61dd72a836c3190971cf66cfe
