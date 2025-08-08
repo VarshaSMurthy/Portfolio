@@ -251,7 +251,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --only=production
+RUN npm ci
 
 # Copy source code
 COPY . .
@@ -328,41 +328,19 @@ docker build -t portfolio-app .
 
 **Run the container:**
 ```bash
-docker run -p 3000:80 portfolio-app
+docker run -d -p 3000:80 --name portfolio-container portfolio-app
 ```
 
-**Run in background:**
+**Stop and remove the container:**
 ```bash
-docker run -d -p 3000:80 --name my-portfolio portfolio-app
+docker stop portfolio-container && docker rm portfolio-container
 ```
 
-**Stop the container:**
-```bash
-docker stop my-portfolio
-```
-
-#### Docker Compose (Optional)
-Create `docker-compose.yml` for easier management:
-
-```yaml
-version: '3.8'
-services:
-  portfolio:
-    build: .
-    ports:
-      - "3000:80"
-    container_name: varsha-portfolio
-    restart: unless-stopped
-```
-
-**Run with Docker Compose:**
-```bash
-# Start
-docker-compose up -d
-
-# Stop
-docker-compose down
-```
+**Docker Features:**
+- Multi-stage build for optimized production image
+- Container runs on port 3000 (mapped from internal port 80)
+- Nginx configuration includes security headers and optimizations
+- Self-contained build process
 
 ### Deploy Options
 - **Netlify**: Drag `build` folder to Netlify dashboard
