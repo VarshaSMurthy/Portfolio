@@ -6,15 +6,17 @@ A modern, responsive portfolio website showcasing my expertise as a Site Reliabi
 
 - **Responsive Design** - Mobile hamburger menu, optimized for all device sizes
 - **Professional Experience Timeline** - Tab-based navigation through career journey
-- **Skills Showcase** - Technical stack with custom icons
-- **Contact Integration** - Direct links to LinkedIn, GitHub, and email
-- **Mobile-First Design** - Optimized mobile experience
+- **Projects Showcase** - Featured projects with GitHub links and conditional demo links
+- **Skills Showcase** - Technical stack with custom icons and certifications
+- **Contact Integration** - Functional contact form with EmailJS integration
+- **Mobile-First Design** - Optimized mobile experience with center-aligned mobile layouts
 
 ## 🛠️ Technologies Used
 
 - **Frontend**: React.js (^19.1.1), HTML5, CSS3
 - **Icons**: React Icons (^5.5.0)
-- **Styling**: Custom responsive CSS
+- **Email Service**: EmailJS (^4.4.1)
+- **Styling**: Custom responsive CSS with justified text and hover effects
 
 ## 📦 Installation & Required Packages
 
@@ -210,6 +212,21 @@ emailjs.send(
 
 ## 🎨 Customization
 
+### Update Projects Data
+Edit `src/Projects.js` to add your projects:
+```javascript
+const projects = [
+  {
+    title: "Your Project Name",
+    description: "Project description",
+    image: "/images/project.jpg",
+    tech: ["React", "Node.js", "MongoDB"],
+    demo: "https://your-demo-url.com", // Optional - leave as "#" to hide demo link
+    code: "https://github.com/yourusername/repository"
+  }
+];
+```
+
 ### Update Experience Data
 Edit `src/experienceData.js`:
 ```javascript
@@ -226,7 +243,14 @@ const experienceData = [
 ### Update Personal Information
 - **Home.js**: Name, role, description, social links
 - **About.js**: Professional background and image
+- **Contact.js**: Contact information and social links
 - **Skills.js**: Technical skills and certifications
+
+### Current Portfolio Projects
+The portfolio includes these featured projects:
+1. **Personal Portfolio** - This responsive portfolio website
+2. **Handwritten Digit Recognition App** - Android ML application with P2P computing
+3. **Brain Boundary Extraction from rs-fMRI** - Data mining project for medical imaging
 
 ## 🚀 Deployment
 

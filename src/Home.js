@@ -11,7 +11,7 @@ function Home() {
             <h3 className="home-hello">Hello, It's Me</h3>
             <h1 className="home-name">Varsha Sangama Murthy</h1>
             <h2 className="home-role">
-              And I'm a <span className="home-role-accent">Site Reliability Engineer</span>
+              <span className="home-role-accent">Site Reliability Engineer</span>
             </h2>
             <p className="home-desc">
               Empowering reliable, high-performance systems through a passion for Site Reliability Engineering.

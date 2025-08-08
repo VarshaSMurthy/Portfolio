@@ -4,7 +4,7 @@ import Home from "./Home";
 import About from "./About";
 import Experience from "./Experience";
 import Skills from "./Skills";
-import Portfolio from "./Portfolio";
+import Projects from "./Projects";
 import Contact from "./Contact";
 import "./App.css";
 
@@ -29,7 +29,7 @@ function App() {
 
     // Update URL hash based on scroll position
     const updateHashOnScroll = () => {
-      const sections = ['home', 'about', 'experience', 'skills', 'portfolio', 'contact'];
+      const sections = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
       
       sections.forEach(sectionId => {
         const element = document.getElementById(sectionId);
@@ -84,7 +84,7 @@ function App() {
         <About />
         <Experience />
         <Skills />
-        <Portfolio />
+        <Projects />
         <Contact />
       </main>
     </div>
