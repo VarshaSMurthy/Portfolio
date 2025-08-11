@@ -23,9 +23,9 @@ function Contact() {
     setIsSubmitting(true);
 
     try {
-      const serviceId = 'YOUR_SERVICE_ID';
-      const templateId = 'YOUR_TEMPLATE_ID';
-      const publicKey = 'YOUR_PUBLIC_KEY';
+      const serviceId = 'service_vjxn1wm';
+      const templateId = 'template_owck61y';
+      const publicKey = 'xLR_i1R6gnZUuqEKW';
 
       const templateParams = {
         from_name: formData.name,
