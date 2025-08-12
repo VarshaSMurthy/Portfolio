@@ -27,7 +27,7 @@ function Home() {
           </div>
           <div className="home-right">
             <div className="hexagon-glow">
-              <img src="/profile.JPG" alt="Profile" className="home-profile-img" />
+              <img src={process.env.PUBLIC_URL + "/profile.JPG"} alt="Profile" className="home-profile-img" />
             </div>
           </div>
         </div>
