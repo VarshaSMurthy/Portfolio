@@ -6,7 +6,7 @@ const projects = [
     description: "A responsive portfolio website showcasing my projects, skills, and experience with modern design and smooth animations.",
     image: process.env.PUBLIC_URL + "/portfolio.png",
     tech: ["React", "CSS3", "JavaScript"],
-    demo: "#",
+    demo: "https://varshasmurthy.github.io/Portfolio/",
     code: "https://github.com/VarshaSMurthy/Portfolio"
   },
   {
