@@ -23,7 +23,7 @@ function About() {
           <div className="about-image-container">
             <div className="about-image-bg"></div>
             <img
-              src="/profile.JPG"
+              src={process.env.PUBLIC_URL + "/profile.JPG"}
               alt="About"
               className="about-image"
             />
